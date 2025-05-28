@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "province")
 public class Province extends BaseEntity{
-    @Column(name = "province")
+    @Column(name = "province", nullable = false)
     private String  province;
 
     public Province(){
