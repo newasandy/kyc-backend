@@ -8,7 +8,7 @@ public class LocalLevel extends BaseEntity{
     @Column(name = "local_level", nullable = false)
     private String localLevel;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "district", nullable = false)
     private District district;
 
