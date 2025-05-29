@@ -31,6 +31,9 @@ public class Users extends BaseEntity{
     @Column(name = "email", nullable = false )
     private String email;
 
+    @Column(name = "kyc_status", nullable = false)
+    private boolean kycStatus;
+
     public Users() {
     }
 
@@ -88,5 +91,13 @@ public class Users extends BaseEntity{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isKycStatus() {
+        return kycStatus;
+    }
+
+    public void setKycStatus(boolean kycStatus) {
+        this.kycStatus = kycStatus;
     }
 }
