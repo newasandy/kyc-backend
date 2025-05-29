@@ -35,6 +35,7 @@ public class LocationAPI {
     @POST
     @Path("/district/{id}")
     public List<District> districts(@PathParam("id") Long id){
+        System.out.println(id);
         return districtDao.districtList(id);
     }
 

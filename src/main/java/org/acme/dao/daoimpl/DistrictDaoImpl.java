@@ -1,15 +1,14 @@
 package org.acme.dao.daoimpl;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
+import jakarta.persistence.NoResultException;
 import org.acme.dao.DistrictDao;
 import org.acme.model.District;
-import org.acme.model.Province;
-
-import java.util.Collections;
 import java.util.List;
 
+@ApplicationScoped
 public class DistrictDaoImpl extends BaseDaoImpl<District,Long>implements DistrictDao {
 
     public DistrictDaoImpl(){
@@ -24,11 +23,13 @@ public class DistrictDaoImpl extends BaseDaoImpl<District,Long>implements Distri
 
     @Override
     public List<District> districtList(Long id) {
-        TypedQuery<District> query = entityManager.createQuery(
-                "SELECT d FROM District d WHERE d.provinceId = :provinceId", District.class
-        );
-        query.setParameter("provinceId", id);
-        return query.getResultList();
+        try{
+            return entityManager.createQuery("SELECT e FROM District e WHERE e.provinceId.id = :provinceId", District.class)
+                    .setParameter("provinceId",id)
+                    .getResultList();
+        }catch (NoResultException e){
+            return null;
+        }
     }
 
 }
