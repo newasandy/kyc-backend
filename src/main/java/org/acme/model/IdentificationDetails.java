@@ -9,11 +9,12 @@ import java.time.LocalDate;
 public class IdentificationDetails extends BaseEntity{
 
     @OneToOne
-    @JoinColumn(name = "user_id",nullable = false)
-    private Users usersId;
+    @JoinColumn(name = "customer_id",nullable = false)
+    private Customer customerId;
 
+    @Enumerated(EnumType.STRING)
     @Column(name ="document_type",nullable = false)
-    private String documentType;
+    private DocumentType documentType;
 
     @Column(name = "nationality",nullable = false)
     private String nationality;
@@ -24,8 +25,8 @@ public class IdentificationDetails extends BaseEntity{
     @Column(name = "place_of_issue",nullable = false)
     private String placeOfIssue;
 
-    @Column(name = "id_number", nullable = false,unique = true)
-    private String idNumber;
+    @Column(name = "identity_number", nullable = false,unique = true)
+    private String identityNumber;
 
     @Column(name = "issue_date", nullable = false)
     private LocalDate issueDate;
@@ -36,52 +37,12 @@ public class IdentificationDetails extends BaseEntity{
     public IdentificationDetails() {
     }
 
-    public Users getUsersId() {
-        return usersId;
+    public String getAuthority() {
+        return authority;
     }
 
-    public void setUsersId(Users usersId) {
-        this.usersId = usersId;
-    }
-
-    public String getDocumentType() {
-        return documentType;
-    }
-
-    public void setDocumentType(String documentType) {
-        this.documentType = documentType;
-    }
-
-    public String getNationality() {
-        return nationality;
-    }
-
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
-    }
-
-    public String getBirthPlace() {
-        return birthPlace;
-    }
-
-    public void setBirthPlace(String birthPlace) {
-        this.birthPlace = birthPlace;
-    }
-
-    public String getPlaceOfIssue() {
-        return placeOfIssue;
-    }
-
-    public void setPlaceOfIssue(String placeOfIssue) {
-        this.placeOfIssue = placeOfIssue;
-    }
-
-    public String getIdNumber() {
-        return idNumber;
-    }
-
-    public void setIdNumber(String idNumber) {
-        this.idNumber = idNumber;
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 
     public LocalDate getIssueDate() {
@@ -92,11 +53,51 @@ public class IdentificationDetails extends BaseEntity{
         this.issueDate = issueDate;
     }
 
-    public String getAuthority() {
-        return authority;
+    public String getIdentityNumber() {
+        return identityNumber;
     }
 
-    public void setAuthority(String authority) {
-        this.authority = authority;
+    public void setIdentityNumber(String identityNumber) {
+        this.identityNumber = identityNumber;
+    }
+
+    public String getPlaceOfIssue() {
+        return placeOfIssue;
+    }
+
+    public void setPlaceOfIssue(String placeOfIssue) {
+        this.placeOfIssue = placeOfIssue;
+    }
+
+    public String getBirthPlace() {
+        return birthPlace;
+    }
+
+    public void setBirthPlace(String birthPlace) {
+        this.birthPlace = birthPlace;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public DocumentType getDocumentType() {
+        return documentType;
+    }
+
+    public void setDocumentType(DocumentType documentType) {
+        this.documentType = documentType;
+    }
+
+    public Customer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Customer customerId) {
+        this.customerId = customerId;
     }
 }

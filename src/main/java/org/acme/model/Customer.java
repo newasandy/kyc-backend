@@ -7,16 +7,16 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "users")
-public class Users extends BaseEntity{
+@Table(name = "customer")
+public class Customer extends BaseEntity{
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name", nullable = false, length = 100)
     private String firstName;
 
-    @Column(name = "middle_name")
+    @Column(name = "middle_name", length = 100)
     private String middle_name;
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "last_name", nullable = false, length = 100)
     private String lastName;
 
     @Column(name = "date_of_birth", nullable = false)
@@ -28,13 +28,13 @@ public class Users extends BaseEntity{
     @Column(name = "phone_number", nullable = false)
     private Long phoneNumber;
 
-    @Column(name = "email", nullable = false )
+    @Column(name = "mobile_number",nullable = false)
+    private Long mobileNumber;
+
+    @Column(name = "email", nullable = false, length = 100)
     private String email;
 
-    @Column(name = "kyc_status", nullable = false)
-    private boolean kycStatus;
-
-    public Users() {
+    public Customer() {
     }
 
     public String getFirstName() {
@@ -85,19 +85,19 @@ public class Users extends BaseEntity{
         this.phoneNumber = phoneNumber;
     }
 
+    public Long getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(Long mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public boolean isKycStatus() {
-        return kycStatus;
-    }
-
-    public void setKycStatus(boolean kycStatus) {
-        this.kycStatus = kycStatus;
     }
 }
