@@ -3,12 +3,12 @@ package org.acme.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "permanent_address")
-public class PermanentAddress extends BaseEntity{
+@Table(name = "address_details")
+public class AddressDetails extends BaseEntity{
 
     @OneToOne
-    @JoinColumn(name = "user_id",nullable = false)
-    private Users userId;
+    @JoinColumn(name = "customer_id",nullable = false)
+    private Customer customerId;
 
     @ManyToOne
     @JoinColumn(name = "country_id", nullable = false)
@@ -35,15 +35,19 @@ public class PermanentAddress extends BaseEntity{
     @Column(name = "house_number", nullable = false)
     private String houseNumber;
 
-    public PermanentAddress() {
+    @Enumerated(EnumType.STRING)
+    @Column(name = "address_type", nullable = false)
+    private AddressType addressType;
+
+    public AddressDetails() {
     }
 
-    public Users getUserId() {
-        return userId;
+    public Customer getCustomerId() {
+        return customerId;
     }
 
-    public void setUserId(Users userId) {
-        this.userId = userId;
+    public void setCustomerId(Customer customerId) {
+        this.customerId = customerId;
     }
 
     public Country getCountryId() {
@@ -100,5 +104,13 @@ public class PermanentAddress extends BaseEntity{
 
     public void setHouseNumber(String houseNumber) {
         this.houseNumber = houseNumber;
+    }
+
+    public AddressType getAddressType() {
+        return addressType;
+    }
+
+    public void setAddressType(AddressType addressType) {
+        this.addressType = addressType;
     }
 }

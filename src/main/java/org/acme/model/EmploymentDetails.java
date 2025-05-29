@@ -8,29 +8,26 @@ import jakarta.persistence.*;
 public class EmploymentDetails extends BaseEntity{
 
     @OneToOne
-    @JoinColumn(name = "user_id",nullable = false)
-    private Users userId;
+    @JoinColumn(name = "customer_id",nullable = false)
+    private Customer customerId;
 
-    @Column(name = "education",nullable = false)
+    @Column(name = "education",nullable = false, length = 100)
     private String education;
 
-    @Column(name = "occupation", nullable = false)
+    @Column(name = "occupation", nullable = false, length = 100)
     private String occupation;
 
-    @Column(name = "designation", nullable = false)
+    @Column(name = "designation", nullable = false, length = 100)
     private String designation;
 
-    @Column(name = "employment_type", nullable = false)
+    @Column(name = "employment_type", nullable = false, length = 100)
     private String employmentType;
 
-    @Column(name = "source_of_income", nullable = false)
+    @Column(name = "source_of_income", nullable = false, length = 100)
     private String sourceOfIncome;
 
     @Column(name = "annual_income", nullable = false)
     private double annualIncome;
-
-    @Column(name = "annual_transaction", nullable = false)
-    private int annualTransaction;
 
     @Column(name = "annual_transaction_volume", nullable = false)
     private double annualTransactionVolume;
@@ -38,12 +35,12 @@ public class EmploymentDetails extends BaseEntity{
     public EmploymentDetails() {
     }
 
-    public Users getUserId() {
-        return userId;
+    public Customer getCustomerId() {
+        return customerId;
     }
 
-    public void setUserId(Users userId) {
-        this.userId = userId;
+    public void setCustomerId(Customer customerId) {
+        this.customerId = customerId;
     }
 
     public String getEducation() {
@@ -92,14 +89,6 @@ public class EmploymentDetails extends BaseEntity{
 
     public void setAnnualIncome(double annualIncome) {
         this.annualIncome = annualIncome;
-    }
-
-    public int getAnnualTransaction() {
-        return annualTransaction;
-    }
-
-    public void setAnnualTransaction(int annualTransaction) {
-        this.annualTransaction = annualTransaction;
     }
 
     public double getAnnualTransactionVolume() {
