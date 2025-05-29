@@ -39,6 +39,14 @@ public class Customer extends BaseEntity{
     public Customer() {
     }
 
+    public Salutation getSalutation() {
+        return salutation;
+    }
+
+    public void setSalutation(Salutation salutation) {
+        this.salutation = salutation;
+    }
+
     public String getFirstName() {
         return firstName;
     }
