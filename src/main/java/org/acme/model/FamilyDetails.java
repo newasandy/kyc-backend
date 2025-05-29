@@ -17,6 +17,9 @@ public class FamilyDetails extends BaseEntity{
     @JoinColumn(name = "relation_id",nullable = false)
     private RelationType relationTypeId;
 
+    @Column(name = "marital_status", nullable = false)
+    private boolean maritalStatus;
+
     public FamilyDetails() {
     }
 
@@ -42,5 +45,13 @@ public class FamilyDetails extends BaseEntity{
 
     public void setRelationTypeId(RelationType relationTypeId) {
         this.relationTypeId = relationTypeId;
+    }
+
+    public boolean isMaritalStatus() {
+        return maritalStatus;
+    }
+
+    public void setMaritalStatus(boolean maritalStatus) {
+        this.maritalStatus = maritalStatus;
     }
 }
