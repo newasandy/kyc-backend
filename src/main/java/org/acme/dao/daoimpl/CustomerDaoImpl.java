@@ -6,6 +6,7 @@ import jakarta.persistence.EntityManager;
 import org.acme.dao.CustomerDao;
 import org.acme.model.Customer;
 
+
 @ApplicationScoped
 public class CustomerDaoImpl extends BaseDaoImpl<Customer, Long> implements CustomerDao {
     public CustomerDaoImpl() {
