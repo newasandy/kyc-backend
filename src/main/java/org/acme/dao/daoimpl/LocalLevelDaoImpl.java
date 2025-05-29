@@ -2,8 +2,11 @@ package org.acme.dao.daoimpl;
 
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.acme.dao.LocalLevelDao;
 import org.acme.model.LocalLevel;
+
+import java.util.List;
 
 public class LocalLevelDaoImpl extends BaseDaoImpl<LocalLevel,Long>implements LocalLevelDao {
 
@@ -14,5 +17,14 @@ public class LocalLevelDaoImpl extends BaseDaoImpl<LocalLevel,Long>implements Lo
     @Inject
     public LocalLevelDaoImpl(EntityManager entityManager){
         super(LocalLevel.class,entityManager);
+    }
+
+    @Override
+    public List<LocalLevel> localLevelList(Long id) {
+        TypedQuery<LocalLevel> query = entityManager.createQuery(
+                "SELECT d FROM LocalLevel d WHERE d.districtID = :districtID", LocalLevel.class
+        );
+        query.setParameter("districtID", id);
+        return query.getResultList();
     }
 }
