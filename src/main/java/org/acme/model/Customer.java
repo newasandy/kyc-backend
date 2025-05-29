@@ -1,14 +1,16 @@
 package org.acme.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "customer")
 public class Customer extends BaseEntity{
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "salutation",nullable = false,length = 50)
+    private Salutation salutation;
 
     @Column(name = "first_name", nullable = false, length = 100)
     private String firstName;
