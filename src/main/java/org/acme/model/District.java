@@ -18,6 +18,9 @@ public class District extends BaseEntity{
     @OneToMany(mappedBy = "district", cascade = CascadeType.ALL)
     private List<LocalLevel> localLevel;
 
+    @OneToMany(mappedBy = "districtId",cascade = CascadeType.ALL)
+    private List<AddressDetails> addressDetails;
+
     public District() {
     }
 
@@ -35,5 +38,21 @@ public class District extends BaseEntity{
 
     public void setProvinceId(Province provinceId) {
         this.provinceId = provinceId;
+    }
+
+    public List<LocalLevel> getLocalLevel() {
+        return localLevel;
+    }
+
+    public void setLocalLevel(List<LocalLevel> localLevel) {
+        this.localLevel = localLevel;
+    }
+
+    public List<AddressDetails> getAddressDetails() {
+        return addressDetails;
+    }
+
+    public void setAddressDetails(List<AddressDetails> addressDetails) {
+        this.addressDetails = addressDetails;
     }
 }

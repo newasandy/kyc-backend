@@ -40,8 +40,8 @@ public class Customer extends BaseEntity{
     @OneToMany(mappedBy = "customerId", cascade = CascadeType.ALL)
     private List<AddressDetails> addressDetails;
 
-    @OneToOne(mappedBy = "customerId",cascade = CascadeType.ALL)
-    private FamilyDetails familyDetails;
+    @OneToMany(mappedBy = "customerId",cascade = CascadeType.ALL)
+    private List<FamilyDetails> familyDetails;
 
     @OneToOne(mappedBy = "customerId", cascade = CascadeType.ALL)
     private IdentityDetails identityDetails;
@@ -49,8 +49,8 @@ public class Customer extends BaseEntity{
     @OneToOne(mappedBy = "customerId", cascade = CascadeType.ALL)
     private FinancialDetails financialDetails;
 
-
-
+    @OneToOne(mappedBy = "customerId" , cascade = CascadeType.ALL)
+    private CustomerKyc customerKyc;
 
     public Customer() {
     }
@@ -125,5 +125,45 @@ public class Customer extends BaseEntity{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<AddressDetails> getAddressDetails() {
+        return addressDetails;
+    }
+
+    public void setAddressDetails(List<AddressDetails> addressDetails) {
+        this.addressDetails = addressDetails;
+    }
+
+    public List<FamilyDetails> getFamilyDetails() {
+        return familyDetails;
+    }
+
+    public void setFamilyDetails(List<FamilyDetails> familyDetails) {
+        this.familyDetails = familyDetails;
+    }
+
+    public IdentityDetails getIdentityDetails() {
+        return identityDetails;
+    }
+
+    public void setIdentityDetails(IdentityDetails identityDetails) {
+        this.identityDetails = identityDetails;
+    }
+
+    public FinancialDetails getFinancialDetails() {
+        return financialDetails;
+    }
+
+    public void setFinancialDetails(FinancialDetails financialDetails) {
+        this.financialDetails = financialDetails;
+    }
+
+    public CustomerKyc getCustomerKyc() {
+        return customerKyc;
+    }
+
+    public void setCustomerKyc(CustomerKyc customerKyc) {
+        this.customerKyc = customerKyc;
     }
 }

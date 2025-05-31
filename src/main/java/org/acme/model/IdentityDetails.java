@@ -37,52 +37,12 @@ public class IdentityDetails extends BaseEntity{
     public IdentityDetails() {
     }
 
-    public String getAuthority() {
-        return authority;
+    public Customer getCustomerId() {
+        return customerId;
     }
 
-    public void setAuthority(String authority) {
-        this.authority = authority;
-    }
-
-    public LocalDate getIssueDate() {
-        return issueDate;
-    }
-
-    public void setIssueDate(LocalDate issueDate) {
-        this.issueDate = issueDate;
-    }
-
-    public String getIdentityNumber() {
-        return identityNumber;
-    }
-
-    public void setIdentityNumber(String identityNumber) {
-        this.identityNumber = identityNumber;
-    }
-
-    public String getPlaceOfIssue() {
-        return placeOfIssue;
-    }
-
-    public void setPlaceOfIssue(String placeOfIssue) {
-        this.placeOfIssue = placeOfIssue;
-    }
-
-    public String getBirthPlace() {
-        return birthPlace;
-    }
-
-    public void setBirthPlace(String birthPlace) {
-        this.birthPlace = birthPlace;
-    }
-
-    public String getNationality() {
-        return nationality;
-    }
-
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
+    public void setCustomerId(Customer customerId) {
+        this.customerId = customerId;
     }
 
     public DocumentType getDocumentType() {
@@ -93,11 +53,51 @@ public class IdentityDetails extends BaseEntity{
         this.documentType = documentType;
     }
 
-    public Customer getCustomerId() {
-        return customerId;
+    public String getNationality() {
+        return nationality;
     }
 
-    public void setCustomerId(Customer customerId) {
-        this.customerId = customerId;
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public String getBirthPlace() {
+        return birthPlace;
+    }
+
+    public void setBirthPlace(String birthPlace) {
+        this.birthPlace = birthPlace;
+    }
+
+    public String getPlaceOfIssue() {
+        return placeOfIssue;
+    }
+
+    public void setPlaceOfIssue(String placeOfIssue) {
+        this.placeOfIssue = placeOfIssue;
+    }
+
+    public String getIdentityNumber() {
+        return identityNumber;
+    }
+
+    public void setIdentityNumber(String identityNumber) {
+        this.identityNumber = identityNumber;
+    }
+
+    public LocalDate getIssueDate() {
+        return issueDate;
+    }
+
+    public void setIssueDate(LocalDate issueDate) {
+        this.issueDate = issueDate;
+    }
+
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 }

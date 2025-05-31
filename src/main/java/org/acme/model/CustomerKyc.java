@@ -1,9 +1,9 @@
 package org.acme.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "customer_kyc")
 public class CustomerKyc extends BaseEntity{
 
     @OneToOne

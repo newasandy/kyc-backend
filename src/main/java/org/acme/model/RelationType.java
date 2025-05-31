@@ -24,4 +24,12 @@ public class RelationType extends BaseEntity {
     public void setRelation(String relation) {
         this.relation = relation;
     }
+
+    public List<FamilyDetails> getFamilyDetails() {
+        return familyDetails;
+    }
+
+    public void setFamilyDetails(List<FamilyDetails> familyDetails) {
+        this.familyDetails = familyDetails;
+    }
 }

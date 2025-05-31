@@ -1,8 +1,8 @@
 package org.acme.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "country")
@@ -10,6 +10,9 @@ public class Country extends BaseEntity{
 
     @Column(name = "country")
     private String country;
+
+    @OneToMany(mappedBy = "countryId", cascade = CascadeType.ALL)
+    private List<AddressDetails> addressDetails;
 
     public Country() {
     }
@@ -20,5 +23,13 @@ public class Country extends BaseEntity{
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public List<AddressDetails> getAddressDetails() {
+        return addressDetails;
+    }
+
+    public void setAddressDetails(List<AddressDetails> addressDetails) {
+        this.addressDetails = addressDetails;
     }
 }

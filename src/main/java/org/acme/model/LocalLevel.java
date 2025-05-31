@@ -2,6 +2,8 @@ package org.acme.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "local_level")
 public class LocalLevel extends BaseEntity{
@@ -12,8 +14,18 @@ public class LocalLevel extends BaseEntity{
     @JoinColumn(name = "district", nullable = false)
     private District district;
 
-    public LocalLevel(){
+    @OneToMany(mappedBy = "localLevelId", cascade = CascadeType.ALL)
+    private List<AddressDetails> addressDetails;
 
+    public LocalLevel(){
+    }
+
+    public String getLocalLevel() {
+        return localLevel;
+    }
+
+    public void setLocalLevel(String localLevel) {
+        this.localLevel = localLevel;
     }
 
     public District getDistrict() {
@@ -24,11 +36,11 @@ public class LocalLevel extends BaseEntity{
         this.district = district;
     }
 
-    public String getLocalLevel() {
-        return localLevel;
+    public List<AddressDetails> getAddressDetails() {
+        return addressDetails;
     }
 
-    public void setLocalLevel(String localLevel) {
-        this.localLevel = localLevel;
+    public void setAddressDetails(List<AddressDetails> addressDetails) {
+        this.addressDetails = addressDetails;
     }
 }

@@ -9,7 +9,7 @@ public class FamilyDetails extends BaseEntity{
     @Column(name = "full_name", nullable = false)
     private String fullName;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customerId;
 

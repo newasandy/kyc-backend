@@ -14,6 +14,9 @@ public class Province extends BaseEntity{
     @OneToMany(mappedBy = "provinceId",cascade = CascadeType.ALL)
     private List<District> district;
 
+    @OneToMany(mappedBy = "provinceId" , cascade = CascadeType.ALL)
+    private List<AddressDetails> addressDetails;
+
     public Province(){
 
     }
@@ -24,5 +27,21 @@ public class Province extends BaseEntity{
 
     public void setProvince(String province) {
         this.province = province;
+    }
+
+    public List<District> getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(List<District> district) {
+        this.district = district;
+    }
+
+    public List<AddressDetails> getAddressDetails() {
+        return addressDetails;
+    }
+
+    public void setAddressDetails(List<AddressDetails> addressDetails) {
+        this.addressDetails = addressDetails;
     }
 }
