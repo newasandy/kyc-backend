@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "identification_details")
-public class IdentificationDetails extends BaseEntity{
+@Table(name = "identity_details")
+public class IdentityDetails extends BaseEntity{
 
     @OneToOne
     @JoinColumn(name = "customer_id",nullable = false)
@@ -34,7 +34,7 @@ public class IdentificationDetails extends BaseEntity{
     @Column(name = "authority", nullable = false)
     private String authority;
 
-    public IdentificationDetails() {
+    public IdentityDetails() {
     }
 
     public String getAuthority() {

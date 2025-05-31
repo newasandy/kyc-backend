@@ -3,6 +3,7 @@ package org.acme.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "customer")
@@ -24,7 +25,7 @@ public class Customer extends BaseEntity{
     @Column(name = "date_of_birth", nullable = false)
     private LocalDate dateOfBirth;
 
-    @Column(name = "gender", nullable = false)
+    @Column(name = "gender", nullable = false, length = 25)
     private String gender;
 
     @Column(name = "phone_number", nullable = false)
@@ -35,6 +36,21 @@ public class Customer extends BaseEntity{
 
     @Column(name = "email", nullable = false, length = 100)
     private String email;
+
+    @OneToMany(mappedBy = "customerId", cascade = CascadeType.ALL)
+    private List<AddressDetails> addressDetails;
+
+    @OneToOne(mappedBy = "customerId",cascade = CascadeType.ALL)
+    private FamilyDetails familyDetails;
+
+    @OneToOne(mappedBy = "customerId", cascade = CascadeType.ALL)
+    private IdentityDetails identityDetails;
+
+    @OneToOne(mappedBy = "customerId", cascade = CascadeType.ALL)
+    private FinancialDetails financialDetails;
+
+
+
 
     public Customer() {
     }

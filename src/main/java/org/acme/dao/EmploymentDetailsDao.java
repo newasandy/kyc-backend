@@ -1,6 +1,6 @@
 package org.acme.dao;
 
-import org.acme.model.EmploymentDetails;
+import org.acme.model.FinancialDetails;
 
-public interface EmploymentDetailsDao extends BaseDao<EmploymentDetails,Long> {
+public interface EmploymentDetailsDao extends BaseDao<FinancialDetails,Long> {
 }

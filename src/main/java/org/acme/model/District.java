@@ -2,6 +2,8 @@ package org.acme.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "district")
 public class District extends BaseEntity{
@@ -12,6 +14,9 @@ public class District extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "province_id",nullable = false)
     private Province provinceId;
+
+    @OneToMany(mappedBy = "district", cascade = CascadeType.ALL)
+    private List<LocalLevel> localLevel;
 
     public District() {
     }

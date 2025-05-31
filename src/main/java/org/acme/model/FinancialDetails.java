@@ -4,8 +4,8 @@ package org.acme.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "employment_details")
-public class EmploymentDetails extends BaseEntity{
+@Table(name = "financial_details")
+public class FinancialDetails extends BaseEntity{
 
     @OneToOne
     @JoinColumn(name = "customer_id",nullable = false)
@@ -32,7 +32,7 @@ public class EmploymentDetails extends BaseEntity{
     @Column(name = "annual_transaction_volume", nullable = false)
     private double annualTransactionVolume;
 
-    public EmploymentDetails() {
+    public FinancialDetails() {
     }
 
     public Customer getCustomerId() {

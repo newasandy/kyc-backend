@@ -7,7 +7,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.acme.dao.EmploymentDetailsDao;
-import org.acme.model.EmploymentDetails;
+import org.acme.model.FinancialDetails;
 
 @Path("/employment")
 @Produces(MediaType.APPLICATION_JSON)
@@ -18,9 +18,9 @@ public class EmploymentDetailsAPI {
     private EmploymentDetailsDao employmentDetailsDao;
 
     @Path("/addEmploymentDetails")
-    public Response addEmploymentDetails(EmploymentDetails employmentDetails){
-        if(employmentDetailsDao.save(employmentDetails)){
-            return Response.status(Response.Status.CREATED).entity(employmentDetails).build();
+    public Response addEmploymentDetails(FinancialDetails financialDetails){
+        if(employmentDetailsDao.save(financialDetails)){
+            return Response.status(Response.Status.CREATED).entity(financialDetails).build();
         }
         else{
             return Response.status(Response.Status.NOT_FOUND)

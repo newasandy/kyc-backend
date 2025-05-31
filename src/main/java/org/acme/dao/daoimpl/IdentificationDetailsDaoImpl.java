@@ -4,15 +4,15 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import org.acme.dao.IdentificationDetailsDao;
-import org.acme.model.IdentificationDetails;
+import org.acme.model.IdentityDetails;
 
 @ApplicationScoped
-public class IdentificationDetailsDaoImpl extends BaseDaoImpl<IdentificationDetails,Long> implements IdentificationDetailsDao {
+public class IdentificationDetailsDaoImpl extends BaseDaoImpl<IdentityDetails,Long> implements IdentificationDetailsDao {
     public IdentificationDetailsDaoImpl(){
-        super(IdentificationDetails.class,null);
+        super(IdentityDetails.class,null);
     }
     @Inject
     public IdentificationDetailsDaoImpl(EntityManager entityManager){
-        super(IdentificationDetails.class,entityManager);
+        super(IdentityDetails.class,entityManager);
     }
 }

@@ -1,14 +1,18 @@
 package org.acme.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "province")
 public class Province extends BaseEntity{
     @Column(name = "province", nullable = false)
     private String  province;
+
+
+    @OneToMany(mappedBy = "provinceId",cascade = CascadeType.ALL)
+    private List<District> district;
 
     public Province(){
 

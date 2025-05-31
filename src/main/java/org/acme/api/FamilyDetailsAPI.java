@@ -8,7 +8,6 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.acme.dao.FamilyDetailsDao;
 import org.acme.model.FamilyDetails;
-import org.acme.model.IdentificationDetails;
 
 @Path("/family")
 @Produces(MediaType.APPLICATION_JSON)
